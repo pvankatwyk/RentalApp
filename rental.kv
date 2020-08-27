@@ -73,41 +73,80 @@
 
 
 Screen:
-    MDToolbar:
-        id: toolbar
-        pos_hint: {"top":1}
-        title: "Rental App"
-        elevation: 10
-        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
-        right_action_items: [["dots-vertical", lambda x: app.callback()]]
-    Widget:
+
+    BoxLayout
+        orientation: 'vertical'
+        MDToolbar:
+            id: toolbar
+            pos_hint: {"top":1}
+            title: "Rental App"
+            elevation: 10
+            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+            right_action_items: [["dots-vertical", lambda x: app.callback()]]
+
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name: "Analyze"
+                text: "Analyze"
+                icon: 'chart-bar'
+                MDLabel:
+                    text: 'Analyze'
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: "Map"
+                text: "Map"
+                icon: 'home-map-marker'
+                MDLabel:
+                    text: 'Map'
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: "Mortgage"
+                text: "Mortgage"
+                icon: 'currency-usd'
+                MDLabel:
+                    text: 'Mortgage'
+                    halign: 'center'
+
+            MDBottomNavigationItem:
+                name: "More"
+                text: "More"
+                icon: 'dots-vertical'
+                MDLabel:
+                    text: 'More'
+                    halign: 'center'
 
     NavigationLayout:
-
         x: toolbar.height
 
         ScreenManager:
             id: screen_manager
+
             Screen:
                 name: "Starred Properties"
                 MDLabel:
                     text: "Starred Properties"
                     halign: "center"
+
             Screen:
                 name: "All Properties"
                 MDLabel:
                     text: "All Properties"
                     halign: "center"
+
             Screen:
                 name: "Owned Properties"
                 MDLabel:
                     text: "Owned Properties"
                     halign: "center"
+
             Screen:
                 name: "Settings"
                 MDLabel:
                     text: "Settings"
                     halign: "center"
+
             Screen:
                 name: "Profile"
                 MDLabel:
@@ -119,6 +158,6 @@ Screen:
             id: nav_drawer
 
             ContentNavigationDrawer:
-                id: content_drawer
+                #id: content_drawer
                 nav_drawer: nav_drawer
                 screen_manager: screen_manager

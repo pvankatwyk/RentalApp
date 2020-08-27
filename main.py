@@ -9,11 +9,9 @@ class ContentNavigationDrawer(BoxLayout):
     nav_drawer = ObjectProperty()
 
 
-
-
-class TestNavigationDrawer(MDApp):
+class propAnalyzer(MDApp):
     def build(self):
         screen = Builder.load_file("rental.kv")
         return screen
 
-TestNavigationDrawer().run()
+propAnalyzer().run()
