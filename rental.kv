@@ -1,3 +1,53 @@
+<Analysis>
+    orientation: 'vertical'
+    padding: "8dp"
+    spacing: "8dp"
+
+    BoxLayout:
+        MDToolbar:
+            id: analysis_toolbar
+            pos_hint: {"top":1}
+            title: "Analysis"
+            elevation: 10
+            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+            right_action_items: [["dots-vertical", lambda x: app.callback()]]
+        MDLabel:
+            text: "New Analysis"
+            size_hint: 0.5,None
+            pos_hint: {'x': 0,'y':0.78}
+            font_style: "Subtitle2"
+        TextInput:
+            size_hint: 0.5,None
+            height: "36dp"
+            pos_hint: {'y':0.77}
+            background_color: (1,1,1,1)
+            hint_text: "Test"
+
+        BoxLayout:
+            orientation:'vertical'
+            padding: dp(20)
+            spacing:20
+            MDLabel:
+                text: 'Connexion'
+                theme_text_color: 'Secondary'
+                font_style:"H6"
+                size_hint_y: None
+                height: dp(36)
+            MDSeparator:
+                height: dp(1)
+            MDTextField:
+                id: 'username'
+                hint_text: "Username "
+                helper_text_mode: "on_focus"
+            MDTextField:
+                id: 'password'
+                hint_text: "Password "
+                helper_text_mode: "on_focus"
+
+            MDFlatButton:
+                text: "Connexion"
+                pos_hint: {'center_x': 0.5}
+
 <ContentNavigationDrawer>:
     orientation: "vertical"
     padding: "8dp"
@@ -89,33 +139,29 @@ Screen:
                 name: "Analyze"
                 text: "Analyze"
                 icon: 'chart-bar'
-                MDLabel:
-                    text: 'Analyze'
-                    halign: 'center'
+                on_tab_touch_down:
+                    screen_manager.current = "Analyze"
 
             MDBottomNavigationItem:
                 name: "Map"
                 text: "Map"
                 icon: 'home-map-marker'
-                MDLabel:
-                    text: 'Map'
-                    halign: 'center'
+                on_tab_touch_down:
+                    screen_manager.current = "Map"
 
             MDBottomNavigationItem:
                 name: "Mortgage"
                 text: "Mortgage"
                 icon: 'currency-usd'
-                MDLabel:
-                    text: 'Mortgage'
-                    halign: 'center'
+                on_tab_touch_down:
+                    screen_manager.current = "Mortgage"
 
             MDBottomNavigationItem:
                 name: "More"
                 text: "More"
                 icon: 'dots-vertical'
-                MDLabel:
-                    text: 'More'
-                    halign: 'center'
+                on_tab_touch_down:
+                    screen_manager.current = "More"
 
     NavigationLayout:
         x: toolbar.height
@@ -151,6 +197,31 @@ Screen:
                 name: "Profile"
                 MDLabel:
                     text: "Profile"
+                    halign: "center"
+
+            Screen:
+                name: "Mortgage"
+                MDLabel:
+                    text: "Mortgage"
+                    halign: "center"
+
+            Screen:
+                name: "More"
+                MDLabel:
+                    text: "More"
+                    halign: "center"
+
+
+
+            Screen:
+                name: "Analyze"
+
+
+
+            Screen:
+                name: "Map"
+                MDLabel:
+                    text: "Map"
                     halign: "center"
 
 

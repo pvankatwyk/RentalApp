@@ -4,6 +4,9 @@ from kivy.properties import ObjectProperty
 
 from kivymd.app import MDApp
 
+class Analysis(BoxLayout):
+    pass
+
 class ContentNavigationDrawer(BoxLayout):
     screen_manager = ObjectProperty()
     nav_drawer = ObjectProperty()
